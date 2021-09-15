@@ -28,7 +28,7 @@ val_processed = loader.load_data()
 print('data: ', val_processed[:10])
 
 req_data = {'data': json.dumps(val_x.to_dict())}
-response = requests.get('http://192.168.0.108:8000/predict', data=req_data)
+response = requests.get('http://0.0.0.0:8000/predict', data=req_data)
 api_predict = response.json()['prediction']
 print('predict: ', api_predict[:10])
 
