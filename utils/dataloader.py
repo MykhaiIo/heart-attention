@@ -14,11 +14,11 @@ class DataLoader(object):
         self.dataset['gender'] = self.dataset['gender'].replace(['Other'], 'Male')
         
         # binning with cut
-        self.dataset['age'] = pd.cut(self.dataset['age'], 3)
-        self.dataset['avg_glucose_level'] = pd.cut(self.dataset['avg_glucose_level'], 2)
+        self.dataset['age'] = pd.qcut(self.dataset['age'], 4)
+        self.dataset['avg_glucose_level'] = pd.cut(self.dataset['avg_glucose_level'], 3)
 
         # drop columns
-        drop_elements = ['id', 'gender', 'Residence_type', 'bmi']
+        drop_elements = ['id', 'gender', 'hypertension', 'Residence_type', 'bmi']
         self.dataset = self.dataset.drop(drop_elements, axis=1)
 
         # encode labels
@@ -26,9 +26,6 @@ class DataLoader(object):
         
         le.fit(self.dataset['age'])
         self.dataset['age'] = le.transform(self.dataset['age'])
-
-        le.fit(self.dataset['hypertension'].values)
-        self.dataset['hypertension'] = le.transform(self.dataset['hypertension'].values)
 
         le.fit(self.dataset['heart_disease'])
         self.dataset['heart_disease'] = le.transform(self.dataset['heart_disease'])

@@ -15,7 +15,6 @@
         ],
         "final_columns":[
             "age",
-            "hypertension",
             "heart_disease",
             "ever_married",
             "work_type",
@@ -53,12 +52,12 @@
                     "avg_glucose_level"
                 ],
                 "methods":[
-                    "cut",
+                    "qcut",
                     "cut"
                 ],
                 "bins_nums":[
-                    3,
-                    2
+                    4,
+                    3
                 ],
                 "inplaces":[
                     "True",
@@ -73,6 +72,7 @@
                 "in_columns":[
                     "id",
                     "gender",
+                    "hypertension",
                     "Residence_type",
                     "bmi"
                 ]
@@ -84,7 +84,6 @@
             "params":{
                 "in_columns":[
                     "age",
-                    "hypertension",
                     "heart_disease",
                     "ever_married",
                     "work_type",
