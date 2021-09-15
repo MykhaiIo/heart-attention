@@ -1,5 +1,8 @@
 import pickle
 
+import sys
+sys.path.append("./")
+
 from settings.constants import SAVED_ESTIMATOR
 
 

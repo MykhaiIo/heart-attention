@@ -1,4 +1,7 @@
-from dataloader import DataLoader
-from dataset import Dataset
-from trainer import Estimator
-from predictor import Predictor
+import sys
+sys.path.append("./")
+
+from utils.dataloader import DataLoader
+from utils.dataset import Dataset
+from utils.trainer import Estimator
+from utils.predictor import Predictor
