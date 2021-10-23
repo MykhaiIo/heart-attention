@@ -19,6 +19,7 @@
             "ever_married",
             "work_type",
             "avg_glucose_level",
+            "bmi",
             "smoking_status"
         ],
         "y": "stroke",
@@ -27,16 +28,16 @@
     "operations":[
         {
             "operation_number":1,
-            "operation_name":"replace",
+            "operation_name":"bins",
             "params":{
                 "in_columns":[
-                    "gender"
+                    "age"
                 ],
-                "old_values":[
-                    "Other"
+                "methods":[
+                    "qcut"
                 ],
-                "new_values":[
-                    "Male"
+                "bins_nums":[
+                    4
                 ],
                 "inplaces":[
                     "True"
@@ -45,28 +46,6 @@
         },
         {
             "operation_number":2,
-            "operation_name":"bins",
-            "params":{
-                "in_columns":[
-                    "age",
-                    "avg_glucose_level"
-                ],
-                "methods":[
-                    "qcut",
-                    "cut"
-                ],
-                "bins_nums":[
-                    4,
-                    3
-                ],
-                "inplaces":[
-                    "True",
-                    "True"
-                ]
-            }
-        },
-        {
-            "operation_number":3,
             "operation_name":"drop_columns",
             "params":{
                 "in_columns":[
@@ -79,7 +58,28 @@
             }
         },
         {
+            "operation_number":3,
+            "operation_name":"fill_nans",
+            "params":{
+                "in_columns":[
+                    "bmi"
+                ],
+                "methods":[
+                    "random"
+                ]
+            }
+        },
+        {
             "operation_number":4,
+            "operation_name":"normalize",
+            "params":{
+                "in_columns":[
+                    "avg_glucose_level"
+                ]
+            }
+        },
+        {
+            "operation_number":5,
             "operation_name":"encode_labels",
             "params":{
                 "in_columns":[
@@ -87,7 +87,6 @@
                     "heart_disease",
                     "ever_married",
                     "work_type",
-                    "avg_glucose_level",
                     "smoking_status"
                 ]
             }
