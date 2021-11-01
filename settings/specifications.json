@@ -15,6 +15,7 @@
         ],
         "final_columns":[
             "age",
+            "hypertension",  
             "heart_disease",
             "ever_married",
             "work_type",
@@ -22,8 +23,16 @@
             "bmi",
             "smoking_status"
         ],
+        "categrical_features":[
+            "age",
+            "hypertension",  
+            "heart_disease",
+            "ever_married",
+            "work_type",
+            "smoking_status"
+        ],
         "y": "stroke",
-        "metrics":"accuracy_score"
+        "metrics":"recall_score"
     },
     "operations":[
         {
@@ -84,7 +93,6 @@
             "params":{
                 "in_columns":[
                     "age",
-                    "heart_disease",
                     "ever_married",
                     "work_type",
                     "smoking_status"

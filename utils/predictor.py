@@ -11,4 +11,4 @@ class Predictor:
         self.loaded_estimator = pickle.load(open(SAVED_ESTIMATOR, 'rb'))
 
     def predict(self, data):
-        return self.loaded_estimator.predict(data)
+        return (self.loaded_estimator.predict_proba(data)[:,1] >= 0.386).astype(bool)
